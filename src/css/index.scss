@@ -6,6 +6,8 @@
 
 //Component css imports
 @import 'navigation';
+@import 'footer';
+@import 'filter';
 
 * {
   font-family: 'Montserrat', sans-serif;
@@ -15,10 +17,11 @@
 }
 
 body {
-  background-color: $main-background-color;
+  background-color: $main-bc;
 }
 
 .main {
-  width: 75%;
+  width: $grid-width-standard;
   margin: 45px auto;
+  min-height: 90vh;
 }

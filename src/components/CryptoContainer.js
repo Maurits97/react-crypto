@@ -5,9 +5,8 @@ import { fetchCryptos } from '../redux'
 function CryptoContainer({ cryptoData, fetchCryptos }) {
   useEffect(() => {
     fetchCryptos()
-  }, [])
-    return cryptoData.loading ? (<h2>Loading</h2>) : 
-    cryptoData.error ? (<h2>{cryptoData.error}</h2>) : (
+  }, [fetchCryptos])
+    return (
      <div>
        <h2>Crypto List</h2>
        <div>
