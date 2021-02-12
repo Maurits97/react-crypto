@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Info extends Component {
+class TrendingContainer extends Component {
     render() {
         return (
             <div>
-                <h1>Information component</h1>
+                <h1>This is the trending page</h1>
             </div>
         )
     }
 }
 
-export default Info;
+export default TrendingContainer;

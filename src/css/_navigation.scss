@@ -1,0 +1,50 @@
+.nav {
+  background-color: $white;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+  .nav__logo {
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .nav__list {
+    margin-left: 25%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 21px;
+
+    .nav__list__item {
+      list-style-type: none;
+      font-weight: $regular;
+      font-size: 18px;
+      padding-right: 70px;
+    }
+
+    .nav-standard {
+      color: $nav-foot-grey;
+      text-decoration: none;
+    }
+
+    // Used in <NavLink> only activates when link is "active"
+    .nav-active {
+      color: $main-blue;
+      font-weight: $medium;
+
+      &:after {
+        content: '';
+        display: block;
+        margin: 5px auto 0 auto;
+        height: 3px;
+        width: 40px;
+        background-color: $main-blue;
+      }
+    }
+  }
+}

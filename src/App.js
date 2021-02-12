@@ -1,37 +1,26 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
-import './css/App.css';
+import { Provider } from 'react-redux'
+import store from './redux/store'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 
-import User from './components/User';
-import Account from './components/Account';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement } from './actions';
-
+import NavContainer from './components/NavContainer'
+import CryptoContainer from './components/CryptoContainer';
+import TrendingContainer from './components/TrendingContainer';
 
 function App() {
-  const counter = useSelector(state => state.counter);
-  const isLogged = useSelector(state => state.isLogged);
-  const dispatch = useDispatch();
-
   return (
-    <Router>
-      <div>
-        <div>
-          <Link to="/">Home</Link>
-          <Link to="/account">Account</Link>
-        </div>
+    <Provider store={store}>
+      <Router>
+          <NavContainer />
 
-        <p> Counter {counter}</p>
-        <button onClick={() => dispatch(increment(5))}>+</button>
-        <button onClick={() => dispatch(decrement())}>+</button>
-        {isLogged ? <p>Information i shouldnt see</p>: ''}
-
-        <hr/>
-        <Route exact path="/" component={User}/>
-        <Route exact path="/account" component={Account}/>
-      </div>
-    </Router>
+          <div className="main">
+            <Route exact path="/" component={CryptoContainer}/>
+            <Route exact path="/trending" component={TrendingContainer}/>
+          </div>
+          
+      </Router>
+    </Provider>
   );
 }
 
