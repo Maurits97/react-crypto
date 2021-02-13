@@ -10,10 +10,10 @@ function CryptoContainer({ cryptoData, fetchCryptos }) {
      <div>
        <h2>Crypto List</h2>
        <div>
-          {cryptoData && cryptoData.users && cryptoData.users.map(user => 
-            <div key={user.name}>
-              <h2 >{user.name}</h2>
-              <p>&euro; {user.current_price}</p>
+          {cryptoData && cryptoData.cryptos && cryptoData.cryptos.map(crypto => 
+            <div key={crypto.name}>
+              <h2 >{crypto.name}</h2>
+              <p>&euro; {crypto.current_price}</p>
             </div>)}
        </div>
      </div>

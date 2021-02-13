@@ -5,7 +5,6 @@ class TrendingContainer extends Component {
         return (
             <div>
                 <div className="main"></div>
-                
             </div>
         )
     }

@@ -17,14 +17,14 @@ const reducer = (state = initialState, action) => {
     case FETCH_CRYPTOS_SUCCES:
       return {
         loading: false,
-        users: action.payload,
+        cryptos: action.payload,
         error: ''
       }
     
     case FETCH_CRYPTOS_FAILURE:
       return {
         loading: false,
-        users: [],
+        cryptos: [],
         error: action.payload
       }
       default: return state

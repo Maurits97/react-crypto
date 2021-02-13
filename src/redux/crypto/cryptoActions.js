@@ -7,10 +7,10 @@ export const fetchCryptosRequest = () => {
   }
 }
 
-export const fetchCryptosSucces = users => {
+export const fetchCryptosSucces = cryptos => {
   return {
     type: FETCH_CRYPTOS_SUCCES,
-    payload: users
+    payload: cryptos
   }
 }
 

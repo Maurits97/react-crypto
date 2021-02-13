@@ -1,5 +1,6 @@
 .nav {
   background-color: $white;
+  position: relative;
   height: 80px;
   width: 100%;
   display: flex;
@@ -9,12 +10,20 @@
   -moz-box-shadow: 0px 4px 4px 0px rgba(250,250,250,1);
   box-shadow: 0px 4px 4px 0px rgba(250,250,250,1);
 
+  @media only screen and (max-width: $tablet-bp) {
+    height: 65px;
+  }
+
   .nav__logo {
     position: absolute;
     top: 15px;
     left: 30px;
     height: 40px;
     cursor: pointer;
+
+    @media only screen and (max-width: $tablet-bp) {
+      height: 33px;
+    }
   }
 
   .nav__list {
@@ -28,17 +37,33 @@
       font-weight: $regular;
       font-size: 18px;
       padding-right: 70px;
+
+      @media only screen and (max-width: $tablet-bp) {
+        font-size: 12px;
+        position: absolute;
+        right: 0;
+        padding-right: 65px;
+      }
     }
 
     .nav-standard {
       color: $nav-foot-grey;
       text-decoration: none;
+
+      @media only screen and (max-width: $tablet-bp) {
+        display: none;
+      }
     }
 
     // Used in <NavLink> only activates when link is "active"
     .nav-active {
       color: $main-blue;
       font-weight: $medium;
+      display: block;
+
+      @media only screen and (max-width: $tablet-bp) {
+       font-weight: $semi-bold;
+      }
 
       &:after {
         content: '';
@@ -47,7 +72,97 @@
         height: 3px;
         width: 40px;
         background-color: $main-blue;
+
+        @media only screen and (max-width: $tablet-bp) {
+          display: none;
+        }
       }
     }
+  }
+
+  //CSS MOBILE NAVIGATION
+
+  .nav--mobile__button {
+    background-color: $main-blue;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    position: fixed;
+    right: 15px;
+    top: 14px;
+    -webkit-box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.2);
+    box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.2);  
+    z-index: 10; //above mobile nav background
+    display: none;
+    cursor: pointer;
+
+    @media only screen and (max-width: $tablet-bp) {
+      display: block;
+    }
+
+    .nav__hamburger, .nav__cross {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      display: none;
+    }
+
+    .nav__cross {
+      transform: translateY(-50%) translateX(-50%) rotate(45deg);
+      width: 25px;
+      height: 25px;
+    }
+  
+    .hamburger-active, .cross-active {
+      display: block;
+    }
+  }
+
+  .nav--mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5; //above all other elements (such as the input form (filterContainer.js))
+    display: none;
+
+    .nav--mobile__list {
+      text-align: center;
+      margin-top: 100px;
+
+      .nav--mobile__list__item {
+        font-size: 30px;
+        font-weight: $regular;
+        margin-bottom: 40px;
+      }
+
+      .nav--mobile-standard {
+        color: $white;
+        text-decoration: none;
+      }
+
+      .nav--mobile-active {
+        font-weight: $semi-bold;
+
+        &:after {
+          content: '';
+          display: block;
+          margin: 10px auto 0 auto;
+          height: 3px;
+          width: 40px;
+          background-color: $white;
+        }
+      }
+    }
+  }
+
+  .nav--mobile-open {
+    width: 100%;
+    height: 100vh;
+    background-color: $main-blue;
+    display: block;
   }
 }
