@@ -26,4 +26,8 @@ body {
   width: $grid-width-standard;
   margin: 45px auto;
   min-height: 90vh;
+
+  @media only screen and (max-width: $tablet-bp) {
+    width: $grid-width-mobile
+   }
 }

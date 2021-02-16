@@ -12,8 +12,8 @@ class CryptoTableContainer extends Component {
       <div className="table__container">
         <table className="table">
           <thead className="table__header">
-            <tr className="table__row--header">
-              <th className="th__market-cap" id="table-center">#</th>
+            <tr className="">
+              <th id="table-center">#</th>
               <th id="table-center">Icon</th>
               <th>Name</th>
               <th>Price</th>

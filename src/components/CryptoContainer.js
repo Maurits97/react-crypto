@@ -10,11 +10,15 @@ function CryptoContainer({cryptoData, fetchCryptos, amountData}) {
     return n >= 0 ? '#16C784' : '#EA3943'
   }
 
-  function getPercentage(n) {
+  function checkIfNumber(n, output) {
     if (n === null || n === undefined) {
-      return 'no record';
+      return <i>No record found</i>;
     } else {
-      return n.toFixed(2) + '%';
+      if (output === 'percentage') {
+        return n.toFixed(2) + '%';
+      } else if (output === 'market-cap' || output === 'volume') {
+        return `\u20AC ${n.toLocaleString()} `
+      }
     }
   }
 
@@ -29,10 +33,10 @@ function CryptoContainer({cryptoData, fetchCryptos, amountData}) {
               <td className="coin__image"><img className="coin__image-src" src={crypto.image} alt="coin" /></td>
               <td className="coin__name">{crypto.name}</td>
               <td className="coin__price">{`\u20AC ${crypto.current_price.toLocaleString()}`}</td>
-              <td className="coin__change" style={{color: getColor(crypto.market_cap_change_percentage_24h)}}>{getPercentage(crypto.market_cap_change_percentage_24h)}</td>
-              <td className="coin__change" style={{color: getColor(crypto.market_cap_change_percentage_24h)}}>{getPercentage(crypto.price_change_percentage_7d_in_currency)}</td>
-              <td className="coin__market-cap">{`\u20AC ${crypto.market_cap.toLocaleString()}`}</td>
-              <td className="coin__volume">{`\u20AC ${crypto.total_volume.toLocaleString()}`}</td>
+              <td className="coin__change" style={{color: getColor(crypto.market_cap_change_percentage_24h)}}>{checkIfNumber(crypto.market_cap_change_percentage_24h, 'percentage')}</td>
+              <td className="coin__change" style={{color: getColor(crypto.market_cap_change_percentage_24h)}}>{checkIfNumber(crypto.price_change_percentage_7d_in_currency, 'percentage')}</td>
+              <td className="coin__market-cap">{checkIfNumber(crypto.market_cap, 'market-cap')}</td>
+              <td className="coin__volume">{checkIfNumber(crypto.total_volume, 'volume')}</td>
               <td className="coin__supply">{`${crypto.circulating_supply.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})} ${crypto.symbol.toUpperCase()}`}</td>
             </tr>)}
      </tbody>
