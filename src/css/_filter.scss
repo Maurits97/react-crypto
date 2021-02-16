@@ -62,11 +62,82 @@
       }
     }
   }
-}
 
-// when mobile breakpoint = true {
-// list items position: absolute.
-// right: "enough from hamburger menu"
-// is-standard: display: none;
-// is-active: display: block/inline?;
-//}
+  .change-amount {
+    width: 130px;
+    height: 40px;
+    margin-top: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding-left: 20px;
+    font-weight: $medium;
+    appearance: none;
+    background: url('../img/arrow_down.svg') no-repeat right $search-bc;
+    -webkit-appearance: none;
+    background-position-x: 100px;
+    -webkit-box-shadow: 0px 3px 0px 0px rgba(239,242,245,1);
+    -moz-box-shadow: 0px 3px 0px 0px rgba(239,242,245,1); 
+    box-shadow: 0px 3px 0px 0px rgba(239,242,245,1);
+  }
+
+  // .select__wrapper {
+  //   width: 250px;
+  //   margin: 15px auto;
+  //   position: relative;
+  //   user-select: none;
+
+  //   .default-option {
+  //     background: grey;
+  //     border-radius: 5px;
+  //     position: relative;
+  //     cursor: pointer;
+
+  //     &:before {
+  //       content: '';
+  //       position: absolute;
+  //       top: 18px;
+  //       right: 18px;
+  //       width: 6px;
+  //       height: 6px;
+  //       border: 2px solid;
+  //       border-color: transparent transparent black black;
+  //       transform: rotate(-45deg);
+  //     }
+
+  //     li {
+  //       padding: 10px 20px;
+  //     }
+  //   }
+
+  //   .select-ul {
+  //     position: absolute;
+  //     top: 55px;
+  //     left: 0;
+  //     width: 100%;
+  //     background:grey;
+  //     border-radius: 5px;
+  //     display: none;
+
+  //     li {
+  //       padding: 10px 20px;
+  //       cursor: pointer;
+
+  //       &:hover {
+  //         background-color: green;
+  //       }
+  //     }
+  //   }
+
+  //   .option {
+
+  //   }
+  // }
+
+  // .select__wrapper.active .select-ul {
+  //   display: block;
+  // }
+
+  // .select__wrapper.active .default-option:before{
+  //   transform: rotate(-225deg);
+  // }
+}

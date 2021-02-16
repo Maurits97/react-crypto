@@ -2,16 +2,18 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchCryptos } from '../redux'
 
-function CryptoContainer({ cryptoData, fetchCryptos }) {
+//using functional component because useEffect() doesnt work in a class componen
+function CryptoContainer({cryptoData, fetchCryptos, amountData}) {
+  let coinAmount = amountData.amountNumber
+
   useEffect(() => {
     fetchCryptos()
-  }, [fetchCryptos])
+  }, [coinAmount, fetchCryptos]) //if coinAmount changes (in FilteContainer.js) fetchCryptos() is called again, thanks to useEffect()
     return (
      <div>
-       <h2>Crypto List</h2>
        <div>
-          {cryptoData && cryptoData.cryptos && cryptoData.cryptos.map(crypto => 
-            <div key={crypto.name}>
+          {cryptoData.cryptos && cryptoData.cryptos.map(crypto => 
+            <div key={crypto.id}>
               <h2 >{crypto.name}</h2>
               <p>&euro; {crypto.current_price}</p>
             </div>)}
@@ -22,13 +24,14 @@ function CryptoContainer({ cryptoData, fetchCryptos }) {
 
 const mapStateToProps = state => {
   return {
-      cryptoData: state.crypto
+      cryptoData: state.crypto,
+      amountData: state.amount
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-      fetchCryptos: () => dispatch(fetchCryptos())
+      fetchCryptos: () => dispatch(fetchCryptos()),
   }
 }
 

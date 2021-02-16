@@ -3,7 +3,7 @@ import { FETCH_CRYPTOS_REQUEST, FETCH_CRYPTOS_SUCCES, FETCH_CRYPTOS_FAILURE } fr
 const initialState = {
   loading: false,
   data: [],
-  error: ''
+  error: '',
 }
 
 const reducer = (state = initialState, action) => {
@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
     case FETCH_CRYPTOS_REQUEST:
       return {
         ...state,
-        loading: true
+        loading: true,
       }
 
     case FETCH_CRYPTOS_SUCCES:
@@ -27,6 +27,7 @@ const reducer = (state = initialState, action) => {
         cryptos: [],
         error: action.payload
       }
+      
       default: return state
   }
 }

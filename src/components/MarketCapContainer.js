@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 //component imports
 import FilterContainer from './FilterContainer'
-import CryptoContainer from './CryptoContainer';
+import CryptoTableContainer from './CryptoTableContainer';
 
 class MarketCapContainer extends Component {
     render() {
@@ -10,7 +10,7 @@ class MarketCapContainer extends Component {
           <div>
             <FilterContainer />
             <div className="main">
-                <CryptoContainer />
+                <CryptoTableContainer />
             </div>
           </div>
            

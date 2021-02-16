@@ -8,12 +8,14 @@
 @import 'navigation';
 @import 'footer';
 @import 'filter';
+@import 'table';
 
 * {
   font-family: 'Montserrat', sans-serif;
   margin: 0; 
   padding: 0; 
   border: 0; 
+  list-style: none;
 }
 
 body {
