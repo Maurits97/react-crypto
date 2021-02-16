@@ -1,3 +1,81 @@
-.table {
+.table__container {
+  overflow-x: auto;
+  width: 100%;
   
+  .table {
+    border-collapse: collapse;
+    font-size: 15px;
+    width: 100%;
+
+    .table__header {
+      .table__row--header {
+        .th__market-cap {
+          
+        }
+      }
+    }
+
+    .table__header, .table__footer {
+      color: $grey-2;
+      
+      tr th {
+        font-weight: $semi-bold;
+        padding: 15px 0 15px 0;
+        text-align: left
+      }
+    }
+
+    #table-center {
+      text-align: center;
+    }
+
+    .table-row {
+      height: 55px;
+      background-color: $white;
+      border-bottom: 2px solid $main-blue;
+      color: $table-blue;
+      font-weight: $medium;
+
+      .coin__market-cap-nr {
+        min-width: 35px;
+        text-align: center;
+      }
+
+      .coin__image {
+        min-width: 65px;
+        
+        .coin__image-src {
+          display: block;
+          margin: 0 auto;
+          width: 23px;
+        }
+      }
+
+      .coin__name {
+        font-weight: $semi-bold;
+        min-width: 120px;
+      }
+
+      .coin__price {
+        min-width: 100px;
+      }
+
+      .coin__change {
+        min-width: 70px;
+      }
+
+      .coin__market-cap {
+        min-width: 150px;
+      }
+
+      .coin__volume {
+        min-width: 150px;
+      }
+
+      .coin__supply {
+        min-width: 150px;
+        white-space: nowrap;
+      }
+    }
+  }
 }

@@ -27,7 +27,7 @@ export const fetchCryptos = () => {
 
   return (dispatch) => {
     dispatch(fetchCryptosRequest)
-    axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=${amount}&page=1&sparkline=false`)
+    axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&price_change_percentage=7d&order=market_cap_desc&per_page=${amount}&page=1&sparkline=false`)
       .then((response) => {
         const cryptos = response.data
         dispatch(fetchCryptosSucces(cryptos))

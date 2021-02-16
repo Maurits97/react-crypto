@@ -2,7 +2,7 @@ import { FETCH_COIN_AMOUNT} from "./amountTypes"
 
 const initialState = {
   //Set initial coin amount for api call (10/50/100/250)
-  amountNumber: 50
+  amountNumber: 10
 }
 
 const amountReducer = (state = initialState, action) => {

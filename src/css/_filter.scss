@@ -16,7 +16,7 @@
     position: relative;
 
     .search__input {
-      color: $search-input-c;
+      color: $grey-2;
       font-weight: $semi-bold;
       font-size: 19px;
       width: 100%;
@@ -29,16 +29,16 @@
       box-shadow: 0px 3px 0px 0px rgba(239,242,245,1);
 
       &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: $search-input-c;
+        color: $grey-2;
         opacity: 1; /* Firefox */
       }
       
       &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-        color: $search-input-c;
+        color: $grey-2;
       }
       
       &::-ms-input-placeholder { /* Microsoft Edge */
-        color: $search-input-c;
+        color: $grey-2;
       }
     }
 

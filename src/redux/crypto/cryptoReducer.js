@@ -1,7 +1,7 @@
 import { FETCH_CRYPTOS_REQUEST, FETCH_CRYPTOS_SUCCES, FETCH_CRYPTOS_FAILURE } from "./cryptoTypes"
 
 const initialState = {
-  loading: false,
+  loading: true,
   data: [],
   error: '',
 }
