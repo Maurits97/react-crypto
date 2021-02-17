@@ -23,7 +23,7 @@ export const fetchCryptosFailure = error => {
 }
 
 export const fetchCryptos = () => {
-  const amount = store.getState().amount.amountNumber //binding the state to a variable
+  const amount = store.getState().amount.amountNumber //binding the state to amount
 
   return (dispatch) => {
     dispatch(fetchCryptosRequest)
