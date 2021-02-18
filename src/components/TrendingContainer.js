@@ -29,8 +29,16 @@ function TrendingContainer({cryptoDataTrending, fetch7dTrendingCryptos}) {
     <div className="main">
       <h1 className="header" onClick={() => testFunction()}>Top 7 Trending Crypto Currencies</h1>
       <p className="header__note">Top-7 trending coins on CoinGecko as searched by users in the last 24 hours (Ordered by most popular first)</p>
-      <div>
-        {cryptoDataTrending.cryptosTrending.coins && cryptoDataTrending.cryptosTrending.coins.map(crypto => <p key={crypto.item.id}>{crypto.item.id}</p>)}
+      <div className="trending">
+        {cryptoDataTrending.cryptosTrending.coins && cryptoDataTrending.cryptosTrending.coins.map(crypto => 
+        <div className="trending__item" key={crypto.item.id}>
+          <img className="trending__item__image" src={crypto.item.large} alt="crypto icon"/>
+          <p className="trending__item__name" >{crypto.item.name}</p>
+          {/* <p className="trending__item__image--bg" >{crypto.item.name}</p> */}
+          <p className="trending__item__symbol">{crypto.item.symbol}</p>
+          <p className="trending__item__rank">Rank: #{crypto.item.market_cap_rank}</p>
+          <p className="trending__item__score">Trending: {crypto.item.score + 1}</p>
+          </div>)}
       </div>
     </div>
   )
