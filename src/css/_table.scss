@@ -7,7 +7,28 @@
     font-size: 15px;
     width: 100%;
 
-    .table__header, .table__footer {
+    .table__head {
+
+      .sorting__icon {
+        width: 15px;
+        height: 15px;
+        display: none;
+      }
+
+      .down {
+        transform: rotate(90deg);
+        display: inline;
+        padding-left: 6px;
+      }
+
+      .up {
+        transform: rotate(-90deg);
+        display: inline;
+        padding-right: 6px;
+      }
+    }
+
+    .table__head, .table__foot {
       color: $grey-2;
       
       tr th {
@@ -15,6 +36,7 @@
         padding: 15px 0 15px 0;
         text-align: left;
         cursor: pointer;
+        position: relative;
       }
     }
 
@@ -66,7 +88,7 @@
       }
 
       .coin__supply {
-        min-width: 150px;
+        min-width: 160px;
         white-space: nowrap;
       }
     }

@@ -5,6 +5,7 @@ import { fetchCryptos } from '../redux'
 //using functional component because useEffect() doesnt work in a class componen
 function CryptoContainer({cryptoData, fetchCryptos, amountData}) {
   let coinAmount = amountData.amountNumber
+  // console.log(cryptoData.cryptos)
 
   function getColor(n) {
     return n >= 0 ? '#16C784' : '#EA3943'

@@ -1,4 +1,9 @@
-import { FETCH_CRYPTOS_REQUEST, FETCH_CRYPTOS_SUCCES, FETCH_CRYPTOS_FAILURE } from './cryptoTypes'
+import { FETCH_CRYPTOS_REQUEST, 
+  FETCH_CRYPTOS_SUCCES, 
+  FETCH_CRYPTOS_FAILURE,
+  FETCH_TRENDING_CRYPTOS_REQUEST,
+  FETCH_TRENDING_CRYPTOS_SUCCES,
+  FETCH_TRENDING_CRYPTOS_FAILURE} from "./cryptoTypes"
 import axios from 'axios'
 import store from '../store'
 
@@ -22,6 +27,7 @@ export const fetchCryptosFailure = error => {
   }
 }
 
+//fetch All Cryptos
 export const fetchCryptos = () => {
   const amount = store.getState().amount.amountNumber //binding the state to amount
 
@@ -35,6 +41,43 @@ export const fetchCryptos = () => {
       .catch(error => {
         const errorMsg = error.message
         dispatch(fetchCryptosFailure(errorMsg))
+      })
+  }
+}
+
+//fetch 7d trending cryptos
+
+export const fetchTrendingCryptosRequest = () => {
+  return {
+    type: FETCH_TRENDING_CRYPTOS_REQUEST,
+  }
+}
+
+export const fetchTrendingCryptosSucces = cryptosTrending => {
+  return {
+    type: FETCH_TRENDING_CRYPTOS_SUCCES,
+    payload: cryptosTrending
+  }
+}
+
+export const fetchTrendingCryptosFailure = errorTrending => {
+  return {
+    type: FETCH_TRENDING_CRYPTOS_FAILURE,
+    payload: errorTrending
+  }
+}
+
+export const fetchTrendingCryptos = () => {
+  return (dispatch) => {
+    dispatch(fetchTrendingCryptosRequest)
+    axios.get(`https://api.coingecko.com/api/v3/search/trending`)
+      .then((response) => {
+        const cryptosTrending = response.data
+        dispatch(fetchTrendingCryptosSucces(cryptosTrending))
+      })
+      .catch(error => {
+        const errorMsgTrending = error.message
+        dispatch(fetchTrendingCryptosFailure(errorMsgTrending))
       })
   }
 }
