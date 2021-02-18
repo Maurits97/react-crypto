@@ -50,6 +50,11 @@
       border-bottom: 2px solid $main-blue;
       color: $table-blue;
       font-weight: $medium;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $main-bc;
+      }
 
       .coin__market-cap-nr {
         min-width: 35px;
