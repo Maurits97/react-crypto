@@ -16,5 +16,9 @@
   .footer__note {
     padding-top: 20px;
     font-size: 15px;
+
+    a {
+      color: $black
+    }
   }
 }

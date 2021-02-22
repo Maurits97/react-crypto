@@ -4,7 +4,7 @@ import { sortCryptos, sortCryptosSucces } from '../redux'
 
 import CryptoContainer from './CryptoContainer';
 
-//import images
+
 import triangle from '../img/triangle.svg'
 
 class CryptoTableContainer extends Component {

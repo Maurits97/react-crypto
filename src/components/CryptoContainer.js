@@ -2,6 +2,10 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchCryptos } from '../redux'
 
+//import images
+import triangleGreen from '../img/triangle-green.svg'
+import triangleRed from '../img/triangle-red.svg'
+
 //using functional component because useEffect() doesnt work in a class componen
 function CryptoContainer({cryptoData, fetchCryptos, amountData}) {
   let coinAmount = amountData.amountNumber
@@ -22,6 +26,14 @@ function CryptoContainer({cryptoData, fetchCryptos, amountData}) {
       }
     }
   }
+  function getTriangle(change) {
+   return change >= 0 ? triangleGreen : triangleRed
+  }
+
+  function getTriangleColor(change) {
+    return change >= 0 ? 'mobile__triangle--green' : 'mobile__triangle--red'
+   }
+
   useEffect(() => {
     fetchCryptos()
   }, [coinAmount, fetchCryptos,]) //if coinAmount changes (in FilterContainer.js) fetchCryptos() is called again, thanks to useEffect()
@@ -38,7 +50,9 @@ function CryptoContainer({cryptoData, fetchCryptos, amountData}) {
               <td className="coin__market-cap-nr">{crypto.market_cap_rank}</td>
               <td className="coin__image"><img className="coin__image-src" src={crypto.image} alt="coin" /></td>
               <td className="coin__name">{crypto.name}</td>
-              <td className="coin__price">{`\u20AC ${crypto.current_price.toLocaleString()}`}</td>
+              <td className="coin__price">
+                <img className={`${getTriangleColor(crypto.price_change_percentage_24h)} mobile__triangle`} src={getTriangle(crypto.price_change_percentage_24h)} alt="arrow indication"/>
+                {`\u20AC ${crypto.current_price.toLocaleString()}`}</td>
               <td className="coin__change" style={{color: getColor(crypto.price_change_percentage_24h)}}>{checkIfNumber(crypto.price_change_percentage_24h, 'percentage')}</td>
               <td className="coin__change" style={{color: getColor(crypto.price_change_percentage_7d_in_currency)}}>{checkIfNumber(crypto.price_change_percentage_7d_in_currency, 'percentage')}</td>
               <td className="coin__market-cap">{checkIfNumber(crypto.market_cap, 'market-cap')}</td>

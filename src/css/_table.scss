@@ -141,6 +141,26 @@
           display: none;
         }
       }
+
+      .mobile__triangle {
+        display: none;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 120px;
+
+        @media only screen and (max-width: $tablet-bp) {
+          display: block;
+        }
+      }
+
+      .mobile__triangle--green {
+         transform: rotate(-90deg);
+      }
+
+      .mobile__triangle--red {
+        transform: rotate(90deg);
+      }
     }
   }
 }
