@@ -42,36 +42,36 @@ class CryptoTableContainer extends Component {
         <table className="table">
           <thead className="table__head">
             <tr>
-              <th className="table__header" value="market_cap_rank" onClick={() => this.sort('market_cap_rank')} id="table-center">
+              <th className="table__header market-cap-rank" value="market_cap_rank" onClick={() => this.sort('market_cap_rank')} id="table-center">
                 #
                 <img className="sorting__icon up" src={triangle} alt="sorting icon"/>
                 </th>
               <th id="table-center">Icon</th>
-              <th className="table__header" value="name" onClick={() => this.sort('name')}>
+              <th className="table__header name" value="name" onClick={() => this.sort('name')}>
                 Name 
                 <img className="sorting__icon" src={triangle} alt="sorting icon"/>
                 </th>
-              <th className="table__header" value="current_price" onClick={() => this.sort('current_price')}>
+              <th className="table__header price"  id="table-right" value="current_price" onClick={() => this.sort('current_price')}>
                 Price
                 <img className="sorting__icon" src={triangle} alt="sorting icon"/>
                 </th>
-              <th className="table__header" value="price_change_percentage_24h" onClick={() => this.sort('price_change_percentage_24h')}>
+              <th className="table__header change" value="price_change_percentage_24h" onClick={() => this.sort('price_change_percentage_24h')}>
                 24h
                 <img className="sorting__icon" src={triangle} alt="sorting icon"/>
                 </th>
-              <th className="table__header" value="price_change_percentage_7d_in_currency" onClick={() => this.sort('price_change_percentage_7d_in_currency')}>
+              <th className="table__header change" value="price_change_percentage_7d_in_currency" onClick={() => this.sort('price_change_percentage_7d_in_currency')}>
                 7d
                 <img className="sorting__icon" src={triangle} alt="sorting icon"/>
                 </th>
-              <th className="table__header" value="market_cap" onClick={() => this.sort('market_cap')}>
+              <th className="table__header market-cap" value="market_cap" onClick={() => this.sort('market_cap')}>
                 Market cap 
                 <img className="sorting__icon" src={triangle} alt="sorting icon"/>
                 </th>
-              <th className="table__header" value="total_volume"  onClick={() => this.sort('total_volume')}>
+              <th className="table__header volume" value="total_volume"  onClick={() => this.sort('total_volume')}>
                 Volume
                 <img className="sorting__icon" src={triangle} alt="sorting icon"/>
                 </th>
-              <th className="table__header" value="circulating_supply" onClick={() => this.sort('circulating_supply')}>
+              <th className="table__header supply" value="circulating_supply" onClick={() => this.sort('circulating_supply')}>
                 Circulating supply
                 <img className="sorting__icon" src={triangle} alt="sorting icon"/>
                 </th>

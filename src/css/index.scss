@@ -17,6 +17,7 @@
   padding: 0; 
   border: 0; 
   list-style: none;
+  text-decoration: none;
 }
 
 body {
@@ -31,6 +32,10 @@ body {
   .header {
     font-size: 35px;
     font-weight: $semi-bold;
+
+    @media only screen and (max-width: $tablet-bp) {
+      font-size: 30px;
+    }  
   }
 
   .header__note {
@@ -38,6 +43,10 @@ body {
     font-weight: $regular;
     margin-top: 10px;
     max-width: 600px;
+
+    @media only screen and (max-width: $tablet-bp) {
+      font-size: 13px;
+    }
   }
 
   @media only screen and (max-width: $tablet-bp) {

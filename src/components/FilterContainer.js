@@ -24,11 +24,12 @@ class FilterContainer extends Component {
         </div>
 
         <select className="change-amount" name="coinAmount" defaultValue={this.props.amountData.amountNumber} id="coin-filter" onChange={() => this.changeCoinAmount()}>
-            <option value="10">10 coins</option>
-            <option value="50">50 coins</option>
-            <option value="100">100 coins</option>
-            <option value="250">250 coins</option>
-          </select>
+          <option value="10">10 coins</option>
+          <option value="50">50 coins</option>
+          <option value="100">100 coins</option>
+          <option value="250">250 coins</option>
+        </select>
+        <p className="change-amount__note">Changing crypto amount can take up to a few seconds</p>
       </div>
     </div>
     )

@@ -7,7 +7,17 @@
     font-size: 15px;
     width: 100%;
 
+    @media only screen and (max-width: $tablet-bp) {
+      font-size: 14px;
+    }
+
     .table__head {
+       
+      .change, .market-cap, .volume, .supply {
+        @media only screen and (max-width: $tablet-bp) {
+          display: none;
+        }
+      }
 
       .sorting__icon {
         width: 15px;
@@ -44,6 +54,13 @@
       text-align: center;
     }
 
+    #table-right {
+      @media only screen and (max-width: $tablet-bp) {
+        text-align: right;
+        padding-right: 20px;
+      }
+    }
+
     .table-row {
       height: 55px;
       background-color: $white;
@@ -52,6 +69,10 @@
       font-weight: $medium;
       cursor: pointer;
 
+      @media only screen and (max-width: $tablet-bp) {
+        height: 50px;
+      }
+
       &:hover {
         background-color: $main-bc;
       }
@@ -59,10 +80,18 @@
       .coin__market-cap-nr {
         min-width: 35px;
         text-align: center;
+
+        @media only screen and (max-width: $tablet-bp) {
+          min-width: 35px;
+        }
       }
 
       .coin__image {
         min-width: 65px;
+
+        @media only screen and (max-width: $tablet-bp) {
+          min-width: 40px;
+        }
         
         .coin__image-src {
           display: block;
@@ -74,10 +103,19 @@
       .coin__name {
         font-weight: $semi-bold;
         min-width: 120px;
+
+        @media only screen and (max-width: $tablet-bp) {
+          min-width: 100px;
+        }
       }
 
       .coin__price {
         min-width: 100px;
+
+        @media only screen and (max-width: $tablet-bp) {
+          text-align: right;
+          padding-right: 20px;
+        }
       }
 
       .coin__change {
@@ -95,6 +133,13 @@
       .coin__supply {
         min-width: 160px;
         white-space: nowrap;
+      }
+
+      .coin__change, .coin__market-cap, .coin__volume, .coin__supply {
+
+        @media only screen and (max-width: $tablet-bp) {
+          display: none;
+        }
       }
     }
   }

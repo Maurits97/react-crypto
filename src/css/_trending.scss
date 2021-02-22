@@ -5,6 +5,10 @@
   margin-top: 45px;
   position: relative;
 
+  @media only screen and (max-width: $tablet-bp) {
+    justify-content: center;
+  }
+
    .trending__item {
      margin: 0 15px 15px 0;
      padding: 20px 0 20px 20px;
