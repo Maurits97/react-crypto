@@ -126,7 +126,11 @@
     top: 0;
     left: 0;
     z-index: 5; //above all other elements (such as the input form (filterContainer.js))
-    display: none;
+    background-color: $main-blue;
+    clip-path: circle(0 at calc(100% - 32px) 32px);
+    transition: all 300ms ease-in-out;
+    width: 100%;
+    height: 100vh;
 
     .nav--mobile__list {
       text-align: center;
@@ -159,9 +163,6 @@
   }
 
   .nav--mobile-open {
-    width: 100%;
-    height: 100vh;
-    background-color: $main-blue;
-    display: block;
+    clip-path: circle(75%);
   }
 }
