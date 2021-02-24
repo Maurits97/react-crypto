@@ -13,8 +13,6 @@ class MarketCapContainer extends Component {
                 <CryptoTableContainer />
             </div>
           </div>
-           
-            
         )
     }
 }

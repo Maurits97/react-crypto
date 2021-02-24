@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchCryptos } from '../redux'
+import { useHistory } from "react-router-dom";
 
 //import images
 import triangleGreen from '../img/triangle-green.svg'
@@ -34,6 +35,11 @@ function CryptoContainer({cryptoData, fetchCryptos, amountData}) {
     return change >= 0 ? 'mobile__triangle--green' : 'mobile__triangle--red'
    }
 
+  const history = useHistory(); 
+  const handleRowClick = (id) => { //used for table row link to coin detail page
+    history.push(`/coin/${id}`);
+  }  
+
   useEffect(() => {
     fetchCryptos()
   }, [coinAmount, fetchCryptos,]) //if coinAmount changes (in FilterContainer.js) fetchCryptos() is called again, thanks to useEffect()
@@ -46,7 +52,7 @@ function CryptoContainer({cryptoData, fetchCryptos, amountData}) {
     </tbody>) : (
      <tbody>
         {cryptoData.cryptos && cryptoData.cryptos.map(crypto => 
-            <tr key={crypto.id} className="table-row">
+            <tr onClick={()=> handleRowClick(crypto.id)} key={crypto.id} className="table-row">
               <td className="coin__market-cap-nr">{crypto.market_cap_rank}</td>
               <td className="coin__image"><img className="coin__image-src" src={crypto.image} alt="coin" /></td>
               <td className="coin__name">{crypto.name}</td>
@@ -58,7 +64,7 @@ function CryptoContainer({cryptoData, fetchCryptos, amountData}) {
               <td className="coin__market-cap">{checkIfNumber(crypto.market_cap, 'market-cap')}</td>
               <td className="coin__volume">{checkIfNumber(crypto.total_volume, 'volume')}</td>
               <td className="coin__supply">{`${crypto.circulating_supply.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})} ${crypto.symbol.toUpperCase()}`}</td>
-            </tr>)}
+              </tr>)}
      </tbody>
    )
 }

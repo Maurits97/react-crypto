@@ -1,26 +1,18 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchTrendingCryptos } from '../redux'
-
-// class TrendingContainer extends Component {
-//   render() {
-//     return (
-//       <div className="main">
-//         <h1 className="header">Top 7 Trending Crypto Currencies</h1>
-//         <p className="header__note">Top-7 trending coins on CoinGecko as searched by users in the last 24 hours (Ordered by most popular first)</p>
-//       </div>
-//     )
-//   }
-// }
-
-// export default TrendingContainer;
-
+import { useHistory } from "react-router-dom";
 
 //using functional component because useEffect() doesnt work in a class component
 function TrendingContainer({cryptoDataTrending, fetch7dTrendingCryptos}) {
   function testFunction(){
     console.log(cryptoDataTrending.cryptosTrending.coins[0].item)
   }
+
+  const history = useHistory(); 
+  const handleRowClick = (id) => { //used for table row link to coin detail page
+    history.push(`/coin/${id}`);
+  }  
 
   useEffect(() => {
     fetch7dTrendingCryptos()
@@ -31,7 +23,7 @@ function TrendingContainer({cryptoDataTrending, fetch7dTrendingCryptos}) {
       <p className="header__note">Top-7 trending coins on CoinGecko as searched by users in the last 24 hours (Ordered by most popular first)</p>
       <div className="trending">
         {cryptoDataTrending.cryptosTrending.coins && cryptoDataTrending.cryptosTrending.coins.map(crypto => 
-        <div className="trending__item" key={crypto.item.id}>
+        <div onClick={()=> handleRowClick(crypto.item.id)} className="trending__item" key={crypto.item.id}>
           <img className="trending__item__image" src={crypto.item.large} alt="crypto icon"/>
           <p className="trending__item__name" >{crypto.item.name}</p>
           {/* <p className="trending__item__image--bg" >{crypto.item.name}</p> */}
