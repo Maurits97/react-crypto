@@ -7,7 +7,17 @@ class DetailContainer extends Component {
         return (
           <div>
             <div className="main">
-              <p>detail page yo</p>
+              <div className="coin">
+                <div className="breadcrumbs">
+                  <h1>Hallo</h1>
+                </div>
+                <div className="header">
+                  <div className="header__main"></div>
+                  <div className="header__aside"></div>
+                </div>
+                <div className="coin__info"></div>
+                <div className="coin__text"></div>
+              </div>
             </div>
           </div>
         )
