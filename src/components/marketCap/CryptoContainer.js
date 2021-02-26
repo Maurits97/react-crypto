@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { fetchCryptos } from '../redux'
+import { fetchCryptos, fetchOneCryptoRequest } from '../../redux'
 import { useHistory } from "react-router-dom";
 
 //import images
-import triangleGreen from '../img/triangle-green.svg'
-import triangleRed from '../img/triangle-red.svg'
+import triangleGreen from '../../img/triangle-green.svg'
+import triangleRed from '../../img/triangle-red.svg'
 
 //using functional component because useEffect() doesnt work in a class componen
-function CryptoContainer({cryptoData, fetchCryptos, amountData}) {
+function CryptoContainer({cryptoData, fetchCryptos, amountData, fetchOneCryptoRequest}) {
   let coinAmount = amountData.amountNumber
   // console.log(cryptoData.cryptos)
+  
 
   function getColor(n) {
     return n >= 0 ? '#16C784' : '#EA3943'
@@ -38,11 +39,13 @@ function CryptoContainer({cryptoData, fetchCryptos, amountData}) {
   const history = useHistory(); 
   const handleRowClick = (id) => { //used for table row link to coin detail page
     history.push(`/coin/${id}`);
+    
   }  
 
   useEffect(() => {
     fetchCryptos()
-  }, [coinAmount, fetchCryptos,]) //if coinAmount changes (in FilterContainer.js) fetchCryptos() is called again, thanks to useEffect()
+    fetchOneCryptoRequest() //sets detail page api call to "loading"
+  }, [coinAmount, fetchCryptos, fetchOneCryptoRequest]) //if coinAmount changes (in FilterContainer.js) fetchCryptos() is called again, thanks to useEffect()
     return cryptoData.loading ? (
     <tbody>
       <tr><td colSpan="9">Crypto's are loading...
@@ -73,13 +76,13 @@ const mapStateToProps = state => {
   return {
       cryptoData: state.crypto,
       amountData: state.amount
-      
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
       fetchCryptos: () => dispatch(fetchCryptos()),
+      fetchOneCryptoRequest: () => dispatch(fetchOneCryptoRequest())
   }
 }
 

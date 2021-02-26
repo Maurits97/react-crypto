@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { fetchTrendingCryptos } from '../redux'
+import { fetchTrendingCryptos, fetchOneCryptoRequest } from '../../redux'
 import { useHistory } from "react-router-dom";
 
 //using functional component because useEffect() doesnt work in a class component
-function TrendingContainer({cryptoDataTrending, fetch7dTrendingCryptos}) {
-  function testFunction(){
-    console.log(cryptoDataTrending.cryptosTrending.coins[0].item)
-  }
+function TrendingContainer({cryptoDataTrending, fetch7dTrendingCryptos, fetchOneCryptoRequest}) {
 
   const history = useHistory(); 
   const handleRowClick = (id) => { //used for table row link to coin detail page
@@ -16,10 +13,11 @@ function TrendingContainer({cryptoDataTrending, fetch7dTrendingCryptos}) {
 
   useEffect(() => {
     fetch7dTrendingCryptos()
-  }, [fetch7dTrendingCryptos]) 
+    fetchOneCryptoRequest() //sets detail page api call to "loading"
+  }, [fetch7dTrendingCryptos, fetchOneCryptoRequest]) 
   return (
     <div className="main">
-      <h1 className="header" onClick={() => testFunction()}>Top 7 Trending Crypto Currencies</h1>
+      <h1 className="header">Top 7 Trending Crypto Currencies</h1>
       <p className="header__note">Top-7 trending coins on CoinGecko as searched by users in the last 24 hours (Ordered by most popular first)</p>
       <div className="trending">
         {cryptoDataTrending.cryptosTrending.coins && cryptoDataTrending.cryptosTrending.coins.map(crypto => 
@@ -45,6 +43,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
       fetch7dTrendingCryptos: () => dispatch(fetchTrendingCryptos()),
+      fetchOneCryptoRequest: () => dispatch(fetchOneCryptoRequest())
   }
 }
 

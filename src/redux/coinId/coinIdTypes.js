@@ -1,0 +1,1 @@
+export const FETCH_COIN_ID = 'FETCH_COIN_ID'

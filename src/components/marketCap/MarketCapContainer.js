@@ -6,6 +6,7 @@ import CryptoTableContainer from './CryptoTableContainer';
 
 class MarketCapContainer extends Component {
     render() {
+        
         return (
           <div>
             <FilterContainer />

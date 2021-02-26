@@ -3,7 +3,10 @@ import { FETCH_CRYPTOS_REQUEST,
   FETCH_CRYPTOS_FAILURE,
   FETCH_TRENDING_CRYPTOS_REQUEST,
   FETCH_TRENDING_CRYPTOS_SUCCES,
-  FETCH_TRENDING_CRYPTOS_FAILURE} from "./cryptoTypes"
+  FETCH_TRENDING_CRYPTOS_FAILURE,
+  FETCH_ONE_CRYPTO_REQUEST,
+  FETCH_ONE_CRYPTO_SUCCES,
+  FETCH_ONE_CRYPTO_FAILURE} from "./cryptoTypes"
 import { SORT_CRYPTOS_SUCCES } from "../sort/sortTypes"
 
 const initialState = {
@@ -12,7 +15,10 @@ const initialState = {
   error: '',
   loadingTrending: true, 
   cryptosTrending: [],
-  errorTrending: ''
+  errorTrending: '',
+  loadingOne: true,
+  cryptoOne: [],
+  errorOne: ''
 }
 
 const cryptoReducer = (state = initialState, action) => {
@@ -68,6 +74,28 @@ const cryptoReducer = (state = initialState, action) => {
         cryptosTrending: [],
         errorTrending: action.payload
       }
+
+      case FETCH_ONE_CRYPTO_REQUEST:
+        return {
+          ...state,
+          loadingOne: true,
+        }
+  
+      case FETCH_ONE_CRYPTO_SUCCES:
+        return {
+          ...state,
+          cryptoOne: action.payload,
+          loadingOne: false,
+          errorOne: ''
+        }
+      
+      case FETCH_ONE_CRYPTO_FAILURE:
+        return {
+          ...state,
+          loadingOne: false,
+          cryptoONe: [],
+          errorOne: action.payload
+        }
       
       default: return state
   }

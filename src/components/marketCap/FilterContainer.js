@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { fetchCoinAmount } from '../redux'
+import { fetchCoinAmount } from '../../redux'
 
 //import images
-import searchIcon from '../img/search_icon.svg'
+import searchIcon from '../../img/search_icon.svg'
 
 class FilterContainer extends Component {
   changeCoinAmount(){

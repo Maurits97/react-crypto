@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { sortCryptos, sortCryptosSucces } from '../redux'
+import { sortCryptos, sortCryptosSucces } from '../../redux'
 
 import CryptoContainer from './CryptoContainer';
 
 //import images
-import triangle from '../img/triangle.svg'
+import triangle from '../../img/triangle.svg'
 
 class CryptoTableContainer extends Component {
   sort(cryptoSortElement) {
