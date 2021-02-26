@@ -28,7 +28,7 @@
       width: 100%;
       height: 70px;
       padding-left: 40px;
-      background-color: $search-bc;
+      background-color: $main-bc;
       border-radius: 8px;
       -webkit-box-shadow: 0px 3px 0px 0px rgba(239,242,245,1);
       -moz-box-shadow: 0px 3px 0px 0px rgba(239,242,245,1); 
@@ -96,7 +96,7 @@
     padding-left: 20px;
     font-weight: $medium;
     appearance: none;
-    background: url('../img/arrow_down.svg') no-repeat right $search-bc;
+    background: url('../img/arrow_down.svg') no-repeat right $main-bc;
     -webkit-appearance: none;
     background-position-x: 100px;
     -webkit-box-shadow: 0px 3px 0px 0px rgba(239,242,245,1);
