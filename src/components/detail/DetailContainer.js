@@ -6,7 +6,7 @@ import { useParams } from "react-router";
 //component imports
 import CoinInfoContainer from './CoinInfoContainer'
 import CoinStatsContainer from './CoinStatsContainer'
-import CoinTextContainer from './CoinTextContainer.js'
+import CoinTextContainer from './CoinTextContainer'
 
 function DetailContainer({cryptoDataOne, fetchOneCrypto, fetchCoinId}) {
   let { id } = useParams();
