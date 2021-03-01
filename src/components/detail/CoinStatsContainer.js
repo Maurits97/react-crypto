@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 class CoinStatsContainer extends Component {
-    checkNumber(n) {
-      return n === null ? 'No record found' : `${n.toLocaleString()} ${this.coinData.symbol.toUpperCase()}`
+    checkNumber(n, symbol) {
+      return n === null ? 'No record found' : `${n.toLocaleString()} ${symbol.toUpperCase()}`
     }
 
     getColor(n) {
@@ -28,7 +28,7 @@ class CoinStatsContainer extends Component {
               </div>
               <div className="coin-stats__element">
                 <p className="coin-stats__header">Max Supply</p>
-                <p className="coin-stats__amount">{`${this.checkNumber(coinData.market_data.total_supply)}`}</p>
+                <p className="coin-stats__amount">{`${this.checkNumber(coinData.market_data.total_supply, coinData.symbol)}`}</p>
               </div>
           </div>
         )
