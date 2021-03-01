@@ -1,0 +1,32 @@
+.coin {
+
+  .change-stats {
+    margin-top: 20px;
+
+    @media only screen and (max-width: $tablet-bp) {
+      position: relative;
+    }
+
+    .change-stats__element {
+      width: 230px;
+      font-size: 12px;
+      font-weight: $medium;
+      display: flex;
+      flex-direction: row;
+      background-color: $white;
+      border-radius: 5px;
+      padding: 12px 15px;
+      justify-content: space-between;
+      margin-bottom: 5px;
+
+      @media only screen and (max-width: $tablet-bp) {
+        padding: 10px;
+        width: auto;
+      }
+
+      .change-stats__header {
+        color: $grey-4;
+      }
+    }
+  }
+}

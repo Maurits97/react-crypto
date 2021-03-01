@@ -29,7 +29,6 @@ class CoinLinksContainer extends Component {
       }
 
       const reddit = () => {
-        console.log(coinData.links.subreddit_url)
         if(coinData.links.subreddit_url !== undefined && coinData.links.subreddit_url !== null) {
           return (
             <a href={coinData.links.subreddit_url} target="_blank" rel="noreferrer"><div className="link">

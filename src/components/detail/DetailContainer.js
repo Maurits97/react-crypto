@@ -7,6 +7,7 @@ import { useParams } from "react-router";
 import CoinInfoContainer from './CoinInfoContainer'
 import CoinStatsContainer from './CoinStatsContainer'
 import CoinTextContainer from './CoinTextContainer'
+import CoinChangeContainer from './CoinChangeContainer'
 
 function DetailContainer({cryptoDataOne, fetchOneCrypto, fetchCoinId}) {
   let { id } = useParams();
@@ -15,13 +16,21 @@ function DetailContainer({cryptoDataOne, fetchOneCrypto, fetchCoinId}) {
     fetchCoinId(id)
     fetchOneCrypto()
   }, [id, fetchOneCrypto, fetchCoinId]) 
-    return (
+    return cryptoDataOne.loadingOne ? (
+      <div className="main">
+        <p>Crypto Data is loading...</p>
+        <p>If the data doesn't load in a few seconds, please reload the page.</p>
+      </div>
+      ) :(
       <div>
         <div className="main">
           <div className="coin">
             <CoinInfoContainer coinData={cryptoDataOne}/>
-            <CoinStatsContainer test='coin stats'/>
-            <CoinTextContainer test='coin text' />
+            <CoinStatsContainer coinData={cryptoDataOne}/>
+            <div className="flex">
+              <CoinChangeContainer coinData={cryptoDataOne}/>
+              <CoinTextContainer coinData={cryptoDataOne}/>
+            </div>
           </div>
         </div>
       </div>

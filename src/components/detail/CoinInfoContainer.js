@@ -11,12 +11,7 @@ class CoinInfoContainer extends Component {
         return change >= 0 ? 'price__change--green' : 'price__change--red'
        }
 
-      return this.props.coinData.loadingOne ? (
-        <div>
-          <p>Crypto Data is loading...</p>
-          <p>If the data doesn't load in a few seconds, please reload the page.</p>
-        </div>
-        ) : (
+      return (
         <div className="coin-info">
           <div className="breadcrumbs">
             <Link to="/" className="breadcrumbs__base"><p>Crypto currencies</p></Link>

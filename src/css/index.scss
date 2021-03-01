@@ -10,7 +10,10 @@
 @import 'filter';
 @import 'table';
 @import 'trending';
-@import 'detail';
+@import 'detail/detail-main';
+@import 'detail/coin-info';
+@import 'detail/coin-stats';
+@import 'detail/coin-change';
 @import 'not-found';
 
 * {
