@@ -9,6 +9,10 @@
     justify-content: center;
   }
 
+  @media only screen and (min-width: $big-bp) {
+    margin-top: 50px;
+  }
+
    .trending__item {
      margin: 0 15px 15px 0;
      padding: 20px 0 20px 20px;
@@ -21,6 +25,11 @@
      flex-wrap: wrap;
      cursor: pointer;
 
+     @media only screen and (min-width: $big-bp) {
+      width: 300px;
+      height: 100px;
+    }
+
      &:hover {
        background-color: $main-bc;
      }
@@ -28,6 +37,11 @@
      .trending__item__image {
       width: 25px;
       height: 25px;
+
+      @media only screen and (min-width: $big-bp) {
+        width: 28px;
+        height: 28px;
+      }
      }
 
      .trending__item__name {
@@ -35,7 +49,13 @@
        font-weight: $semi-bold;
        margin-left: 10px;
        margin-top: 2px;
-       width: 70%;
+       width: 75%;
+
+       @media only screen and (min-width: $big-bp) {
+        font-size: 18px;
+        margin-left: 18px;
+        margin-top: 3px;
+      }
      }
 
      .trending__item__symbol, .trending__item__rank, .trending__item__score {
@@ -46,6 +66,11 @@
        font-weight: $medium;
        padding: 7px 10px 3px 10px;
        border-radius: 5px;
+
+       @media only screen and (min-width: $big-bp) {
+        font-size: 12px;
+        height: 20px;
+      }
      }
 
      .trending__item__symbol {

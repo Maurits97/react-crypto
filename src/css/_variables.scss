@@ -24,8 +24,10 @@ $red: #EA3943;
 //example: @media only screen and (max-width: $tablet-bp) {}
 $tablet-bp: 768px;
 $mobile-bp: 500px;
+$big-bp: 1920px;
 
 //grid width percentages
 $grid-width-standard: 75%;
 $grid-width-mobile: 95%;
 $grid-width-mobile--filter: 90%;
+$grid-width-big: 60%;

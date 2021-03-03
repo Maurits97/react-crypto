@@ -24,6 +24,11 @@
         width: auto;
       }
 
+      @media only screen and (min-width: $big-bp) {
+        font-size: 15px;
+        width: 350px;
+      }
+
       .change-stats__header {
         color: $grey-4;
       }

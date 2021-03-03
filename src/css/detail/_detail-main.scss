@@ -26,6 +26,11 @@
       font-size: 15px;
       line-height: 25px;
 
+      @media only screen and (min-width: $big-bp) {
+        font-size: 17px;
+        line-height: 30px;
+      }
+
       a {
         color: $black;
         font-weight: $semi-bold;

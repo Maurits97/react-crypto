@@ -8,17 +8,21 @@
   .filter__wrapper {
     width: $grid-width-standard;
     margin: 0 auto;
-    padding: 50px 0 50px 0;
+    padding: 70px 0;
 
     @media only screen and (max-width: $tablet-bp) {
       width: $grid-width-mobile--filter;
       padding: 20px 0 20px 0;
     }
+
+    @media only screen and (min-width: $big-bp) {
+      width: $grid-width-big;
+    }
   }
 
   .search {
     position: relative;
-    width: 100%;
+    width: 96%;
 
     .search__input {
       position: relative;
@@ -36,9 +40,12 @@
 
       @media only screen and (max-width: $tablet-bp) {
         height: 55px;
-        width: 95%;
         font-size: 15px;
         padding-left: 20px;
+      }
+
+      @media only screen and (min-width: $big-bp) {
+        font-size: 21px;
       }
 
       &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -71,7 +78,7 @@
       @media only screen and (max-width: $tablet-bp) {
         width: 32px;
         height: 32px;
-        right: 20px;
+        right: 10px;
       }
 
       .search__icon {
@@ -106,6 +113,12 @@
     @media only screen and (max-width: $tablet-bp) {
       margin-top: 30px;
     }
+
+    @media only screen and (min-width: $big-bp) {
+      height: 45px;
+      width: 140px;
+      font-size: 15px;
+    }
   }
   
   .change-amount__note {
@@ -113,5 +126,9 @@
     font-size: 10px;
     font-weight: $regular;
     margin-top: 10px;
+
+    @media only screen and (min-width: $big-bp) {
+      font-size: 13px;
+    }
   }
 }

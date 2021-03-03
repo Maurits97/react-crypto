@@ -14,6 +14,10 @@
     height: 65px;
   }
 
+  @media only screen and (min-width: $big-bp) {
+    height: 90px;
+  }
+
   .nav__logo {
     position: absolute;
     top: 15px;
@@ -24,6 +28,10 @@
     @media only screen and (max-width: $tablet-bp) {
       height: 33px;
     }
+
+    @media only screen and (min-width: $big-bp) {
+      top: 23px;
+    }
   }
 
   .nav__list {
@@ -32,16 +40,25 @@
     flex-direction: row;
     margin-top: 25px;
 
+    @media only screen and (min-width: $big-bp) {
+      margin-top: 30px;
+    }
+
     .nav__list__item {
       font-weight: $regular;
       font-size: 18px;
-      padding-right: 70px;
+      margin-right: 70px;
 
       @media only screen and (max-width: $tablet-bp) {
         font-size: 12px;
         position: absolute;
         right: 0;
-        padding-right: 65px;
+        margin-right: 65px;
+      }
+
+      @media only screen and (min-width: $big-bp) {
+        font-size: 20px;
+        margin-right: 100px;
       }
     }
 

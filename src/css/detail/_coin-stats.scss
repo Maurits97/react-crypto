@@ -50,6 +50,10 @@
         @media only screen and (max-width: $mobile-bp) {
           font-size: 12px;
         }
+
+        @media only screen and (min-width: $big-bp) {
+          font-size: 18px;
+        }
       }
 
       .coin-stats__amount {
@@ -57,6 +61,10 @@
 
         @media only screen and (max-width: $mobile-bp) {
           font-size: 12px;
+        }
+
+        @media only screen and (min-width: $big-bp) {
+          font-size: 18px;
         }
       }
     }

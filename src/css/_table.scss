@@ -11,6 +11,10 @@
       font-size: 14px;
     }
 
+    @media only screen and (min-width: $big-bp) {
+      font-size: 18px;
+    }
+
     .table__head {
        
       .change, .market-cap, .volume, .supply {
@@ -71,6 +75,10 @@
 
       @media only screen and (max-width: $tablet-bp) {
         height: 50px;
+      }
+
+      @media only screen and (min-width: $big-bp) {
+        height: 70px;
       }
 
       &:hover {
