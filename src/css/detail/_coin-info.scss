@@ -83,7 +83,7 @@
         font-size: 8px;
         height: 15px;
         background-color: $grey-4;
-        padding: 4px 0px 0px 0px;
+        padding: 4px 4px 0px 4px;
         color: $white;
         border-radius: 5px;
         font-weight: $medium;
@@ -160,11 +160,8 @@
 
           @media only screen and (max-width: $mobile-bp) {
             text-align: left;
+            margin-bottom: 5px;
           }
-        }
-
-        .price__select {
-
         }
 
         .price {
@@ -207,21 +204,23 @@
           font-size: 12px;
           font-weight: $medium;
           margin-bottom: 5px;
-          margin-top: -3px;
 
           @media only screen and (max-width: $mobile-bp) {
             text-align: left;
+            margin-top: 5px;
           }
         }
 
-        .price__high, .price__low {
+        .price__high, .price__low, .price__ATH {
           font-size: 10px;
           display: flex;
           justify-content: flex-end;
           font-weight: $medium;
+          
 
           @media only screen and (max-width: $mobile-bp) {
             justify-content: flex-start;
+            margin-bottom: 2px;
           }
 
           .price--color {

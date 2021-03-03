@@ -39,6 +39,10 @@ class CoinInfoContainer extends Component {
                 </div>
               </div>
               <p className="price__sats">{coinData.market_data.current_price.btc.toFixed(10)} BTC</p>
+              <div className="price__ATH">
+                <p className="price--color">ATH:</p>
+                <p>{`\u20AC ${coinData.market_data.ath.eur.toLocaleString()}`}</p>
+              </div>
               <div className="price__high">
                 <p className="price--color">High 24h:</p>
                 <p>{`\u20AC ${coinData.market_data.high_24h.eur.toLocaleString()}`}</p>
