@@ -1,17 +1,15 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { fetchCryptos, fetchOneCryptoRequest } from '../../redux'
+import {fetchCryptos, fetchOneCryptoRequest } from '../../redux'
 import { useHistory } from "react-router-dom";
 
 //import images
 import triangleGreen from '../../img/triangle-green.svg'
 import triangleRed from '../../img/triangle-red.svg'
 
-//using functional component because useEffect() doesnt work in a class componen
+//using functional component because useEffect() doesnt work in a class component
 function CryptoContainer({cryptoData, fetchCryptos, amountData, fetchOneCryptoRequest}) {
-  let coinAmount = amountData.amountNumber
-  // console.log(cryptoData.cryptos)
-  
+  let coinAmount = amountData.amountNumber  
 
   function getColor(n) {
     return n >= 0 ? '#16C784' : '#EA3943'
@@ -82,7 +80,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
       fetchCryptos: () => dispatch(fetchCryptos()),
-      fetchOneCryptoRequest: () => dispatch(fetchOneCryptoRequest())
+      fetchOneCryptoRequest: () => dispatch(fetchOneCryptoRequest()),
   }
 }
 

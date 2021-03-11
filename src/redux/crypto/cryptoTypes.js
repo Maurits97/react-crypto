@@ -1,7 +1,12 @@
-//Fetch all cryptos types
+//Fetch all cryptos types (for table)
 export const FETCH_CRYPTOS_REQUEST = 'FETCH_CRYPTOS_REQUEST'
 export const FETCH_CRYPTOS_SUCCES = 'FETCH_CRYPTOS_SUCCES'
 export const FETCH_CRYPTOS_FAILURE = 'FETCH_CRYPTOS_FAILURE'
+
+//Fetch all cryptos types (for table)
+export const FETCH_ALL_CRYPTOS_REQUEST = 'FETCH_ALL_CRYPTOS_REQUEST'
+export const FETCH_ALL_CRYPTOS_SUCCES = 'FETCH_ALL_CRYPTOS_SUCCES'
+export const FETCH_ALL_CRYPTOS_FAILURE = 'FETCH_ALL_CRYPTOS_FAILURE'
 
 //Fetch Trending cryptos types
 export const FETCH_TRENDING_CRYPTOS_REQUEST = 'FETCH_TRENDING_CRYPTOS_REQUEST'

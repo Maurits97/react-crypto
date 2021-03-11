@@ -1,6 +1,9 @@
 import { FETCH_CRYPTOS_REQUEST, 
   FETCH_CRYPTOS_SUCCES, 
   FETCH_CRYPTOS_FAILURE,
+  FETCH_ALL_CRYPTOS_REQUEST,
+  FETCH_ALL_CRYPTOS_SUCCES,
+  FETCH_ALL_CRYPTOS_FAILURE,
   FETCH_TRENDING_CRYPTOS_REQUEST,
   FETCH_TRENDING_CRYPTOS_SUCCES,
   FETCH_TRENDING_CRYPTOS_FAILURE,
@@ -30,7 +33,7 @@ export const fetchCryptosFailure = error => {
   }
 }
 
-//fetch All Cryptos
+//fetch All (dynamic) Cryptos
 export const fetchCryptos = () => {
   const amount = store.getState().amount.amountNumber //binding the state to amount
 
@@ -47,6 +50,45 @@ export const fetchCryptos = () => {
       })
   }
 }
+
+//fetch all cryptos (250) (for filter)
+export const fetchAllCryptosRequest = () => {
+  return {
+    type: FETCH_ALL_CRYPTOS_REQUEST,
+  }
+}
+
+export const fetchAllCryptosSucces = cryptos => {
+  return {
+    type: FETCH_ALL_CRYPTOS_SUCCES,
+    payload: cryptos
+  }
+}
+
+export const fetchAllCryptosFailure = error => {
+  return {
+    type: FETCH_ALL_CRYPTOS_FAILURE,
+    payload: error
+  }
+}
+
+//fetch All Cryptos
+export const fetchAllCryptos = () => {
+
+  return (dispatch) => {
+    dispatch(fetchAllCryptosRequest)
+    axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&price_change_percentage=7d&order=market_cap_desc&per_page=250&page=1&sparkline=false`)
+      .then((response) => {
+        const cryptos = response.data
+        dispatch(fetchAllCryptosSucces(cryptos))
+      })
+      .catch(error => {
+        const errorMsg = error.message
+        dispatch(fetchAllCryptosFailure(errorMsg))
+      })
+  }
+}
+
 
 //fetch 7d trending cryptos
 
