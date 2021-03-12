@@ -12,6 +12,22 @@ class AutoCompleteText extends Component {
     };
   }
 
+  handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      this.searchClick()
+    }
+  }
+
+  searchClick() {
+    const { suggestions } = this.state;
+    if(suggestions.length === 0) {
+      return null
+    } else {
+      const id = suggestions[0].id
+      window.location = `#/coin/${id}`;
+    }
+  }
+
   onTextChanged = (e) => {
     const { items } = this.props;
     const value = e.target.value;
@@ -39,14 +55,13 @@ class AutoCompleteText extends Component {
       </ul>
     )
   }
-  
 
   render() {
     return (
       <div>
         <div className="search">
-          <input className="search__input" placeholder="Search Crypto Currencies..." type="text" onChange={this.onTextChanged}></input>
-          <button className="search__button">
+          <input className="search__input" placeholder="Search 250 Crypto Currencies..." type="text" onChange={this.onTextChanged} onKeyDown={this.handleKeyDown}></input>
+          <button className="search__button" onClick={this.searchClick.bind(this)}>
             <img className="search__icon" src={searchIcon} alt="search icon"/>
           </button>
           {this.renderSuggestions()}
