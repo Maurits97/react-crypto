@@ -18,7 +18,7 @@ function CoinGraphContainer({fetchHistory, history}) {
         data={chartData}
         options={options}
       />
-      <p>{history.historyData.prices[0][1]}</p>
+      {/* <p>{history.historyData.prices[0][1]}</p> */}
     </div>
   )
 }
