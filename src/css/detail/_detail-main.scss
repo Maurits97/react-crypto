@@ -26,7 +26,7 @@
     .coin-text__paragraph {
       font-size: 15px;
       line-height: 25px;
-      height: 300px;
+      max-height: 300px;
       overflow: hidden;
       position: relative;
 
@@ -55,7 +55,7 @@
     }
 
     .open {
-      height: auto;
+      max-height: 9999px;
     }
 
     .coin-text__more {
@@ -76,6 +76,17 @@
       .arrow--less {
         transform: translateY(-50%) rotate(-180deg);
       }
+    }
+  }
+
+  .graph {
+    // background-color: $white;
+    margin: 50px 0;
+
+    .graph__header {
+      font-weight: $medium;
+      font-size: 30px;
+      margin-bottom: 30px;
     }
   }
 }

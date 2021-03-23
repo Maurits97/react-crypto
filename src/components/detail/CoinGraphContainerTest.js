@@ -12,17 +12,33 @@ import {
 } from "recharts";
 import {format, parseISO, subDays} from "date-fns";
 
-const data = [];
-for (let num = 30; num >= 0; num--){
-  data.push({
-    date: subDays(new Date(), num).toISOString().substr(0, 10),
-    value: 1 + Math.random()
-  })
-}
+// const data = [];
+// for (let num = 30; num >= 0; num--){
+//   data.push({
+//     date: subDays(new Date(), num).toISOString().substr(0, 10),
+//     value: 1 + Math.random()
+//   })
+// }
 
 function CoinGraphContainerTest({fetchHistory, history}) {
-  //const newData = history.historyData.prices
+  let historyDataPrices = history.historyData.prices
   //make function that makes object from data array: date(format date also) & value
+  
+  let newData = [];
+  function getChartData(){
+    for (let i=0;i < historyDataPrices.length; i++){
+      console.log(subDays(new Date(), historyDataPrices.length - i).toISOString().substr(0, 10))
+      console.log(historyDataPrices[i][1])
+      newData.push({
+        date: new Date(historyDataPrices[i][0]).toISOString().substr(0, 10), //somehow the date is reversed, so i took the [total length] minus [i]
+        value: historyDataPrices[i][1]
+      })
+    }
+  }
+
+  const getLength = () => {
+    return newData[0].value.toFixed(3).toString().length
+  }
 
   useEffect(() => {
     fetchHistory()
@@ -33,27 +49,25 @@ function CoinGraphContainerTest({fetchHistory, history}) {
     </div>
     ) :(
     <div className="graph">
-      <ResponsiveContainer width="100%" height={400}>
-        <AreaChart data={data}>
-          <defs>
+      <h2 className="graph__header">Historical graph: 30 days</h2>
+      <ResponsiveContainer width="100%" height={400} onLoad={`${getChartData()}`}>
+        <AreaChart data={newData}>
+          {/* <defs>
             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#2451B7" stopOpacity={0.4} />
-              <stop offset="75%" stopColor="#2451B7" stopOpacity={0.05} />
+              <stop offset="0%" stopColor="#16C784" stopOpacity={0.4} />
+              <stop offset="75%" stopColor="#16C784" stopOpacity={0.05} />
             </linearGradient>
-          </defs>
+          </defs> */}
 
-          <Area dataKey="value" stroke="#2451B7" fill="url(#color)"/>
+          <Area dataKey="value" stroke="#16C784" fill="white" strokeWidth={3}/>
 
           <XAxis dataKey="date" axisLine={false} tickLine={false} tickFormatter={str => {
             const date = parseISO(str);
             
-            if (date.getDate() % 7 === 0){
-              return format(date, "MMM, d")
-            }
-            return ""
-          }} interval={0}/>
+            return format(date, "MMM, d")
+          }}/>
 
-          <YAxis dataKey="value" axisLine={false} tickLine={false} tickCount={8} tickFormatter={number => `€${number.toFixed(2)}`}/>
+          <YAxis dataKey="value" width={getLength() * 12} axisLine={false} tickLine={false} tickCount={8} tickFormatter={number => `€${number.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 3})}`}/>
 
           <Tooltip />
 

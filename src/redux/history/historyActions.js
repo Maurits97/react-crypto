@@ -31,7 +31,7 @@ export const fetchHistory = () => {
 
   return (dispatch) => {
     dispatch(fetchHistoryRequest)
-    axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=eur&days=1
+    axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=eur&days=30
     `)
       .then((response) => {
         const history = response.data

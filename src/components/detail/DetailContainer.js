@@ -29,12 +29,13 @@ function DetailContainer({cryptoDataOne, fetchOneCrypto, fetchCoinId}) {
           <div className="coin">
             <CoinInfoContainer coinData={cryptoDataOne}/>
             <CoinStatsContainer coinData={cryptoDataOne}/>
+            <CoinGraphContainerTest />
             <div className="flex">
               <CoinChangeContainer coinData={cryptoDataOne}/>
               <CoinTextContainer coinData={cryptoDataOne}/>
             </div>
             {/* <CoinGraphContainer /> */}
-            <CoinGraphContainerTest />
+            
           </div>
         </div>
       </div>

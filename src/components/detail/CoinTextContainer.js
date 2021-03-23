@@ -39,7 +39,7 @@ class CoinTextContainer extends Component {
     return (
       <div className="coin-text">
         <h2 className="coin-text__header">About {coinData.name}</h2>
-        <p className="coin-text__paragraph closed" id="readmore-text" dangerouslySetInnerHTML={{ __html: coinData.description.en }}></p>
+        <p className="coin-text__paragraph" id="readmore-text" dangerouslySetInnerHTML={{ __html: coinData.description.en }}></p>
         <div className="coin-text__fade" id="readmore-fade"></div>
         <p className="coin-text__more" onClick={this.readmore.bind(this)}>{this.state.text}
           <svg className="arrow" id="readmore-arrow" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path fill="#345AE7" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
