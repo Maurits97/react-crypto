@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { fetchOneCrypto, fetchCoinId } from '../../redux'
+import { fetchOneCrypto, fetchCoinId, fetchHistory } from '../../redux'
 import { useParams } from "react-router";
 
 //component imports
@@ -10,13 +10,14 @@ import CoinTextContainer from './CoinTextContainer'
 import CoinChangeContainer from './CoinChangeContainer'
 import CoinGraphContainer from './CoinGraphContainer'
 
-function DetailContainer({cryptoDataOne, fetchOneCrypto, fetchCoinId}) {
+function DetailContainer({cryptoDataOne, fetchOneCrypto, fetchCoinId, history, fetchHistory}) {
   let { id } = useParams();
 
   useEffect(() => {
     fetchCoinId(id)
     fetchOneCrypto()
-  }, [id, fetchOneCrypto, fetchCoinId]) 
+    fetchHistory()
+  }, [id, fetchOneCrypto, fetchCoinId, fetchHistory]) 
     return cryptoDataOne.loadingOne ? (
       <div className="main">
         <p>Crypto Data is loading...</p>
@@ -28,7 +29,7 @@ function DetailContainer({cryptoDataOne, fetchOneCrypto, fetchCoinId}) {
           <div className="coin">
             <CoinInfoContainer coinData={cryptoDataOne}/>
             <CoinStatsContainer coinData={cryptoDataOne}/>
-            <CoinGraphContainer />
+            <CoinGraphContainer historyData={history}/>
             <div className="flex">
               <CoinChangeContainer coinData={cryptoDataOne}/>
               <CoinTextContainer coinData={cryptoDataOne}/>
@@ -42,6 +43,7 @@ function DetailContainer({cryptoDataOne, fetchOneCrypto, fetchCoinId}) {
 const mapStateToProps = state => {
   return {
       cryptoDataOne: state.crypto,
+      history: state.history,
   }
 }
 
@@ -49,6 +51,7 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchCoinId: (id) => dispatch(fetchCoinId(id)),
     fetchOneCrypto: () => dispatch(fetchOneCrypto()),
+    fetchHistory: () => dispatch(fetchHistory())
   }
 }
 
