@@ -9,7 +9,6 @@ import CoinStatsContainer from './CoinStatsContainer'
 import CoinTextContainer from './CoinTextContainer'
 import CoinChangeContainer from './CoinChangeContainer'
 import CoinGraphContainer from './CoinGraphContainer'
-import CoinGraphContainerTest from './CoinGraphContainerTest'
 
 function DetailContainer({cryptoDataOne, fetchOneCrypto, fetchCoinId}) {
   let { id } = useParams();
@@ -29,13 +28,11 @@ function DetailContainer({cryptoDataOne, fetchOneCrypto, fetchCoinId}) {
           <div className="coin">
             <CoinInfoContainer coinData={cryptoDataOne}/>
             <CoinStatsContainer coinData={cryptoDataOne}/>
-            <CoinGraphContainerTest />
+            <CoinGraphContainer />
             <div className="flex">
               <CoinChangeContainer coinData={cryptoDataOne}/>
               <CoinTextContainer coinData={cryptoDataOne}/>
             </div>
-            {/* <CoinGraphContainer /> */}
-            
           </div>
         </div>
       </div>
