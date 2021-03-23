@@ -35,7 +35,7 @@ class CoinGraphContainer extends Component {
       ) : (
       <div className="graph">
         <h2 className="graph__header">Historical graph: 30 days</h2>
-        <ResponsiveContainer width="100%" height={400} onLoad={`${getChartData()}`}>
+        <ResponsiveContainer width="100%" height={300} onLoad={`${getChartData()}`}>
           <AreaChart data={newData}>  
             <Area dataKey="value" stroke="#16C784" fill="white" strokeWidth={3}/>
   
@@ -45,7 +45,7 @@ class CoinGraphContainer extends Component {
               return format(date, "MMM, d")
             }}/>
   
-            <YAxis dataKey="value" width={getLength() * 12} axisLine={false} tickLine={false} tickCount={8} tickFormatter={number => `€${number.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 3})}`}/>
+            <YAxis dataKey="value" width={getLength() * 12} axisLine={false} tickLine={false} tickCount={6} tickFormatter={number => `€${number.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 3})}`}/>
   
             <Tooltip />
   

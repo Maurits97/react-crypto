@@ -11,10 +11,6 @@
     position: relative;
 
     @media only screen and (max-width: $tablet-bp) {
-      
-    }
-
-    @media only screen and (max-width: $tablet-bp) {
       margin-top: 80px;
       flex-direction: column;
       background-color: $main-bc;

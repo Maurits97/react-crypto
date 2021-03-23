@@ -1,10 +1,11 @@
 .coin {
 
   .change-stats {
-    margin-top: 20px;
+    margin-top: 120px;
 
     @media only screen and (max-width: $tablet-bp) {
       position: relative;
+      margin-top: 20px;
     }
 
     .change-stats__element {
