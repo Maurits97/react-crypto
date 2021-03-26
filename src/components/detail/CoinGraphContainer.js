@@ -45,10 +45,10 @@ class CoinGraphContainer extends Component {
               return format(date, "MMM, d")
             }}/>
   
-            <YAxis dataKey="value" width={getLength() * 12} axisLine={false} tickLine={false} tickCount={6} tickFormatter={number => `€${number.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 3})}`}/>
+            <YAxis dataKey="value" width={getLength() * 13.5} axisLine={false} tickLine={false} tickCount={6} tickFormatter={number => `€${number.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 3})}`}/>
   
-            <Tooltip />
-  
+            <Tooltip content={<CustomTooltip />}/>
+            
             <CartesianGrid opacity={0.3} vertical={false}/>
   
           </AreaChart>
@@ -56,6 +56,16 @@ class CoinGraphContainer extends Component {
       </div>
     )
   }
+}
+
+function CustomTooltip({active, payload, label}){
+  if (active) {
+    return <div className="tooltip">
+      <h4>{format(parseISO(label), "eeee, d MMM, y")}</h4>
+      <p>€{payload[0].value.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 3})}</p>
+    </div>
+  }
+  return null
 }
 
 
