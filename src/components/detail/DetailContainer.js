@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { fetchOneCrypto, fetchCoinId, fetchHistory } from '../../redux'
+import { fetchOneCrypto, fetchCoinId, fetchHistory, fetchHistoryMonths } from '../../redux'
 import { useParams } from "react-router";
 
 //component imports
@@ -31,7 +31,7 @@ function DetailContainer({cryptoDataOne, fetchOneCrypto, fetchCoinId, history, f
             <CoinStatsContainer coinData={cryptoDataOne}/>
             <div className="flex">
               <CoinChangeContainer coinData={cryptoDataOne}/>
-              <CoinGraphContainer historyData={history}/>
+              <CoinGraphContainer historyData={history} fetchHistory={fetchHistory} fetchHistoryMonths={fetchHistoryMonths}/>
             </div>
 
             <CoinTextContainer coinData={cryptoDataOne}/>
@@ -52,7 +52,8 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchCoinId: (id) => dispatch(fetchCoinId(id)),
     fetchOneCrypto: () => dispatch(fetchOneCrypto()),
-    fetchHistory: () => dispatch(fetchHistory())
+    fetchHistory: () => dispatch(fetchHistory()),
+    fetchHistoryMonths: (months) => dispatch(fetchHistoryMonths(months))
   }
 }
 

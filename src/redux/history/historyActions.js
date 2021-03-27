@@ -1,6 +1,7 @@
 import { FETCH_HISTORY_REQUEST, 
   FETCH_HISTORY_SUCCES, 
-  FETCH_HISTORY_FAILURE} from "./historyTypes"
+  FETCH_HISTORY_FAILURE,
+  FETCH_HISTORY_MONTHS} from "./historyTypes"
 import axios from 'axios'
 import store from '../store'
 
@@ -25,13 +26,21 @@ export const fetchHistoryFailure = error => {
   }
 }
 
+export const fetchHistoryMonths = months => {
+  return {
+    type: FETCH_HISTORY_MONTHS,
+    payload: months
+  }
+}
+
 //fetch All (dynamic) Cryptos
 export const fetchHistory = () => {
   const id = store.getState().coinId.coinId
+  const months = store.getState().history.historyMonths
 
   return (dispatch) => {
     dispatch(fetchHistoryRequest)
-    axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=eur&days=200
+    axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=eur&days=${months}
     `)
       .then((response) => {
         const history = response.data

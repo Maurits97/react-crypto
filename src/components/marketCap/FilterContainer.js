@@ -20,7 +20,6 @@ function FilterContainer({fetchCoinAmount, fetchAllCryptos, amountData, allCrypt
   <div className="filter">
     <div className="filter__wrapper">
       
-
       <AutoCompleteText items={allCryptos}/>
 
       <select className="change-amount" name="coinAmount" defaultValue={amountData.amountNumber} id="coin-filter" onChange={() => changeCoinAmount()}>
