@@ -73,10 +73,11 @@ class CoinGraphContainer extends Component {
           <option value="max">max</option>
         </select>
 
-        <ResponsiveContainer width="100%" height={300} onLoad={`${getChartData()}`}>
+        <ResponsiveContainer width={'99%'} height={300} onLoad={`${getChartData()}`}>
+          {/* width 99% fixes responsive bug. (chart didnt response on resize window) */}
           <AreaChart data={newData}>  
-            <Area dataKey="value" stroke="#16C784" fill="white" strokeWidth={3}/>
-  
+            <Area dataKey="value" stroke="#7A9EE6" fill="white" strokeWidth={2}/>
+
             <XAxis dataKey="date" axisLine={false} tickLine={false} tickFormatter={str => {
               const date = parseISO(str);
               
@@ -85,7 +86,7 @@ class CoinGraphContainer extends Component {
   
             <YAxis dataKey="value" domain={['auto', 'auto']} width={getLength() * 12} axisLine={false} tickLine={false} tickCount={5} tickFormatter={number => `€${number.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 3})}`}/>
             
-            {toolTip()} {/* tooltip function = tooltip doesnt show on mobile */}
+            {toolTip()} {/* tooltip function so tooltip doesnt show on mobile */}
             
             <CartesianGrid opacity={0.3} vertical={false}/>
   
