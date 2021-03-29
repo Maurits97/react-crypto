@@ -101,7 +101,7 @@ function CustomTooltip({active, payload, label}){
   if (active) {
     return <div className="tooltip">
       <h4>{format(parseISO(label), "hh:mm, eeee, d MMM, y")}</h4>
-      <p>€{payload[0].value.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 3})}</p>
+      <p>€{payload[0].value.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 5})}</p>
     </div>
   }
   return null
